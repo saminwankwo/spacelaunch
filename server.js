@@ -1,15 +1,15 @@
 const express = require('express');
-const graphqlHTTP = require('express-qrapql');
-const Schema = require('./schema');
+const graphqlHTTP = require('express-graphql');
+const schema = require('./schema');
 
 
 const app = express();
 
 app.use('/graphql', graphqlHTTP({
-    Schema,
+    schema,
     graphiql: true,
   })
 );
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`this is a test and t s on port ${PORT}`));
+app.listen(PORT, () => console.log(`this is a test and it is on port ${PORT}`));
